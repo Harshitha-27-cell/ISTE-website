@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTE Student Chapter - Anurag University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --secondary-blue: #004d99;
+            --accent-blue: #0088ff;
+            --light-blue: #e6f0ff;
+            --white: #ffffff;
+            --light-gray: #f5f7fa;
+            --dark-gray: #333333;
+            --transition: all 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --box-shadow-hover: 0 15px 30px rgba(0, 102, 204, 0.2);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 15px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--primary-blue);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 70%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/hero_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230066cc" fill-opacity="0.1" d="M0,128L48,138.7C96,149,192,171,288,186.7C384,203,480,213,576,202.7C672,192,768,160,864,138.7C960,117,1056,107,1152,112C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            animation: fadeInDown 1s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            animation: fadeIn 1.5s ease;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover::before {
+            width: 100%;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            margin-top: 20px;
+            color: var(--secondary-blue);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-text ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .about-text ul li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .about-text ul li::before {
+            content: '▹';
+            color: var(--primary-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Events Section */
+        .events-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: var(--light-blue);
+            border: none;
+            margin: 0 10px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            color: var(--dark-gray);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(0, 102, 204, 0.3);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            display: block; /* Ensure all cards are visible by default */
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .event-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-info {
+            padding: 20px;
+        }
+
+        .event-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--secondary-blue);
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background-color: var(--light-gray);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .achievement-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+
+        .achievement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .achievement-card:hover .achievement-image img {
+            transform: scale(1.05);
+        }
+
+        .achievement-card h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-blue);
+        }
+
+        /* Recognition Section */
+        .recognition-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .recognition-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recognition-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--accent-blue));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: var(--transition);
+        }
+
+        .recognition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .recognition-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .recognition-card h3 {
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .recognition-card h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 20px;
+            background: var(--primary-blue);
+            border-radius: 3px;
+        }
+
+        .recognition-card ul {
+            list-style: none;
+        }
+
+        .recognition-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .recognition-card ul li::before {
+            content: '→';
+            color: var(--primary-blue);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Team Section */
+        .team {
+            background-color: var(--light-gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .team-member:hover .member-image::after {
+            opacity: 1;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            margin-bottom: 5px;
+            color: var(--secondary-blue);
+        }
+
+        .member-role {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .faculty-incharge {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .faculty-card {
+            max-width: 400px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover .contact-icon {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-about p {
+            margin-top: 15px;
+        }
+
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-blue);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle Effect */
+        .particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            .header-title {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .events-grid,
+            .achievements-grid,
+            .recognition-content,
+            .team-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                min-height: 60vh;
+                background-attachment: scroll;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav.show {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .logo-container {
+                justify-content: center;
+            }
+            
+            .logo {
+                height: 35px;
+            }
+            
+            .contact-detail {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="images/au_logo.jpg" alt="Anurag University Logo" class="logo">
+                <img src="images/iste_logo.jpg" alt="ISTE Logo" class="logo">
+            </div>
+            <h1 class="header-title">ISTE</h1>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#events">Explore Events</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#recognition">Recognition & Benefits</a></li>
+                    <li><a href="#team">ISTE Team</a></li>
+                    <li><a href="#footer">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles-container" id="particles"></div>
+        <div class="container hero-content">
+            <h1>Indian Society for Technical Education</h1>
+            <p>Join the ISTE Student Chapter at Anurag University to enhance your technical skills, network with professionals, and participate in exciting events.</p>
+            <a href="#events" class="cta-button">Explore Events <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p>
+                        The <strong>Indian Society for Technical Education (ISTE)</strong> is India's premier national organization for promoting excellence in technical education. As a non-profit society, ISTE empowers students and educators through innovation, collaboration, and skill development.
+                    </p>
+
+                    <h3>Our Vision</h3>
+                    <ul>
+                        <li>Inspire high ambitions and disciplined growth.</li>
+                        <li>Foster positive attitudes and holistic excellence.</li>
+                        <li>Empower students to reach new academic and professional heights.</li>
+                        <li>Deliver value-driven, practical technical education.</li>
+                        <li>Create a supportive and enriching learning environment.</li>
+                    </ul>
+
+                    <h3>Our Objective</h3>
+                    <p>
+                        To enhance student potential through skill-based learning, industry interaction, and quality education—preparing them to lead and innovate in a competitive world.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="images/ISTE_3.png" alt="About ISTE">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2 class="section-title">Explore Events</h2>
+            <div class="events-tabs">
+                <button class="tab-btn active" data-category="all">All Events</button>
+                <button class="tab-btn" data-category="webinars">Webinars</button>
+                <button class="tab-btn" data-category="workshops">Workshops</button>
+                <button class="tab-btn" data-category="faculty">Faculty Events</button>
+            </div>
+            <div class="events-grid">
+                <!-- Webinar Events -->
+                <div class="event-card fade-in" data-category="webinars">
+                    <div class="event-image">
+                        <img src="images/webinar_1.jpg" alt="Webinar 1">
+                    </div>
+                    <div class="event-info">
+                        <h3>Emerging Tech Trends</h3>
+                        <p>Exploring the latest advancements in technology and their impact on industries.</p>
+                    </div>
+                </div>
+                <div class="event-card fade-in" data-category="webinars">
+                    <div class="event-image">
+                        <img src="images/webinar_2.jpg" alt="Webinar 2">
+                    </div>
+                    <div class="event-info">
+                        <h3>AI in Everyday Life</h3>
+                        <p>Understanding how artificial intelligence is transforming our daily experiences.</p>
+                    </div>
+                </div>
+                <div class="event-card fade-in" data-category="webinars">
+                    <div class="event-image">
+                        <img src="images/webinar_3.jpg" alt="Webinar 3">
+                    </div>
+                    <div class="event-info">
+                        <h3>Future of Cybersecurity</h3>
+                        <p>Discussing the evolving landscape of digital security and privacy.</p>
+                    </div>
+                </div>
+                
+                <!-- Workshop Events -->
+                <div class="event-card fade-in" data-category="workshops">
+                    <div class="event-image">
+                        <img src="images/workshop_1.jpg" alt="Workshop 1">
+                    </div>
+                    <div class="event-info">
+                        <h3>Design and Analysis of Algorithms</h3>
+                        <p>Learn advanced algorithmic techniques and problem-solving strategies.</p>
+                    </div>
+                </div>
+                <div class="event-card fade-in" data-category="workshops">
+                    <div class="event-image">
+                        <img src="images/workshop_2.jpg" alt="Workshop 2">
+                    </div>
+                    <div class="event-info">
+                        <h3>3D Gaming Development</h3>
+                        <p>Explore the world of 3D game development and design principles.</p>
+                    </div>
+                </div>
+                <div class="event-card fade-in" data-category="workshops">
+                    <div class="event-image">
+                        <img src="images/workshop_3.jpg" alt="Workshop 3">
+                    </div>
+                    <div class="event-info">
+                        <h3>Programming Essentials</h3>
+                        <p>Master the fundamentals of programming with hands-on exercises.</p>
+                    </div>
+                </div>
+                
+                <!-- Faculty Events -->
+                <div class="event-card fade-in" data-category="faculty">
+                    <div class="event-image">
+                        <img src="images/faculty_events_1.jpg" alt="Faculty Event 1">
+                    </div>
+                    <div class="event-info">
+                        <h3>Teaching Innovation Conference</h3>
+                        <p>Sharing innovative teaching methodologies for technical education.</p>
+                    </div>
+                </div>
+                <div class="event-card fade-in" data-category="faculty">
+                    <div class="event-image">
+                        <img src="images/faculty_events_2.jpg" alt="Faculty Event 2">
+                    </div>
+                    <div class="event-info">
+                        <h3>Research Collaboration Workshop</h3>
+                        <p>Fostering interdisciplinary research collaborations among faculty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Our Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card fade-in">
+                    <div class="achievement-image">
+                        <img src="images/winners_of_invcitos.jpg" alt="Winner of Invictos">
+                    </div>
+                    <h3>Winner of Invictos</h3>
+                    <p>Our team emerged as champions in the national-level technical competition.</p>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-image">
+                        <img src="images/pwc_hackathon.jpg" alt="Third Place in PWC Hackathon">
+                    </div>
+                    <h3>Third Place in PWC Hackathon</h3>
+                    <p>Secured third position in the prestigious PWC Hackathon against tough competition.</p>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-image">
+                        <img src="images/tech_hack3.jpg" alt="First Place in Techat #3">
+                    </div>
+                    <h3>First Place in Techat #3 – Drone Technology</h3>
+                    <p>Won first prize in the drone technology competition with our innovative design.</p>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-image">
+                        <img src="images/tejas.jpg" alt="Design and Analysis of Algorithms">
+                    </div>
+                    <h3>Design and Analysis of Algorithms</h3>
+                    <p>First Place in Tejas 2K25 (AU) for exceptional algorithm design skills.</p>
+                </div>
+                <div class="achievement-card fade-in">
+                    <div class="achievement-image">
+                        <img src="images/visionova.jpg" alt="Vision Over 2K2">
+                    </div>
+                    <h3>Vision Over 2K2</h3>
+                    <p>First Place in Generate the Man (AU) for computer vision project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recognition & Benefits Section -->
+    <section id="recognition" class="recognition">
+        <div class="container">
+            <h2 class="section-title">Recognition & Benefits</h2>
+            <div class="recognition-content">
+                <div class="recognition-card fade-in">
+                    <h3>Recognition</h3>
+                    <ul>
+                        <li>ISTE Membership Card</li>
+                        <li>Certification for Various Workshops</li>
+                        <li>Student Achievements Recognized via Awards & Scholarships</li>
+                        <li>Access to Industry-Standard Courses</li>
+                        <li>Eligibility for National Level Awards</li>
+                    </ul>
+                </div>
+                <div class="recognition-card fade-in">
+                    <h3>Proficiency of Skills</h3>
+                    <ul>
+                        <li>Quality training programs for faculty & administrators</li>
+                        <li>Supporting top-quality engineers and technicians</li>
+                        <li>Guidance & personality development for students</li>
+                        <li>Short-term training eligibility for academic excellence</li>
+                        <li>Participation in local and national ISTE events</li>
+                    </ul>
+                </div>
+                <div class="recognition-card fade-in">
+                    <h3>Networking Opportunities</h3>
+                    <ul>
+                        <li>Join 50,000+ Academic Professionals</li>
+                        <li>Access 128,500+ technical teachers, 535,000+ students, 2740+ institutional members</li>
+                        <li>Connect with 1,414 faculty chapters, 1,505 student chapters, and 19 state sections</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="recognition-card fade-in" style="margin-top: 30px; text-align: center;">
+                <h3>ISTE Annual Event</h3>
+                <p>ISTE organizes a yearly convention for faculty and students. It brings together technocrats, teachers, policymakers, and industry experts to collaborate, interact, and grow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/1.jpg" alt="Kachapuram Harshitha">
+                    </div>
+                    <div class="member-info">
+                        <h3>Kachapuram Harshitha</h3>
+                        <p class="member-role">President</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/2.jpg" alt="Kalluri Smita Santosh">
+                    </div>
+                    <div class="member-info">
+                        <h3>Kalluri Smita Santosh</h3>
+                        <p class="member-role">Vice President, Education & Training</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/3.jpg" alt="Sriharshith Chenumalla">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sriharshith Chenumalla</h3>
+                        <p class="member-role">Vice President, Membership</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/4.jpg" alt="Dileesh Kenche">
+                    </div>
+                    <div class="member-info">
+                        <h3>Dileesh Kenche</h3>
+                        <p class="member-role">Vice President, Public Relations</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/5.jpg" alt="Pagadala Sanjay Mohan">
+                    </div>
+                    <div class="member-info">
+                        <h3>Pagadala Sanjay Mohan</h3>
+                        <p class="member-role">Secretary</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/6.jpg" alt="Varun Koppula">
+                    </div>
+                    <div class="member-info">
+                        <h3>Varun Koppula</h3>
+                        <p class="member-role">Website Lead</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/7.jpg" alt="Kasthuri Aman">
+                    </div>
+                    <div class="member-info">
+                        <h3>Kasthuri Aman</h3>
+                        <p class="member-role">Event Hospitality</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/8.jpg" alt="Mukku Jithendra Reddy">
+                    </div>
+                    <div class="member-info">
+                        <h3>Mukku Jithendra Reddy</h3>
+                        <p class="member-role">Treasurer</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/9.jpg" alt="Enikapally Sai Nikhilesh">
+                    </div>
+                    <div class="member-info">
+                        <h3>Enikapally Sai Nikhilesh</h3>
+                        <p class="member-role">Video Editing</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/10.jpg" alt="Akshaya Bethala">
+                    </div>
+                    <div class="member-info">
+                        <h3>Akshaya Bethala</h3>
+                        <p class="member-role">Alumni President</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="images/11.jpg" alt="P. Panvi Kaushik">
+                    </div>
+                    <div class="member-info">
+                        <h3>P. Panvi Kaushik</h3>
+                        <p class="member-role">Designing Lead</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Faculty Incharge -->
+            <div class="faculty-incharge fade-in">
+                <h2 class="section-title">Faculty Incharge</h2>
+                <div class="faculty-card">
+                    <div class="member-image">
+                        <img src="images/faculty.jpg" alt="K. Rashmi">
+                    </div>
+                    <div class="member-info">
+                        <h3>K. Rashmi</h3>
+                        <p class="member-role">M.Tech, Assistant Professor</p>
+                        <p><i class="fas fa-envelope"></i> rashmicse@anurag.edu.in</p>
+                        <p><i class="fas fa-phone"></i> 9849216363</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" id="footer-content">
+                <div class="footer-about">
+                    <div class="logo-container">
+                        <img src="images/au_logo.jpg" alt="Anurag University Logo" class="footer-logo">
+                        <img src="images/iste_logo.jpg" alt="ISTE Logo" class="footer-logo">
+                    </div>
+                    <p>The Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making Society for the Technical Education System.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                      <li><a href="#footer-content">Contact Us</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Anurag University, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 9849216363</li>
+                        <li><i class="fas fa-envelope"></i> iste@anurag.edu.in</li>
+                    </ul>
+                    <div class="social-links" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="https://www.instagram.com/istechaptercse_au?igsh=a3loc3Z4ZTJ4emNu" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/indian-society-for-technical-education-student-chapter-au-83b593384/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ISTE Student Chapter - Anurag University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active class in navigation
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Event tabs functionality - FIXED
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const eventCards = document.querySelectorAll('.event-card');
+        
+        // Function to filter events
+        function filterEvents(category) {
+            eventCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        // Set up event listeners for tabs
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                
+                // Update active tab
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter events
+                filterEvents(category);
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+
+        // Create particle effect for hero section
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const numberOfParticles = 50;
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 10 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+    </script>
+</body>
+</html>
